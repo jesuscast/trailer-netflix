@@ -4,7 +4,7 @@
 	"version": "1.0",
 
 	"default_locale":"en",
-	"description":"Loads the trailers for your favorite shows"
+	"description":"Loads the trailers for your favorite shows",
 
 	"content_scripts":[
 		{
@@ -16,7 +16,7 @@
 	],
 	"permissions":[
 		"tabs"
-	]
+	],
 	"background": {
 		"persistent":false
 	}
