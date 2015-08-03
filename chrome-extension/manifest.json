@@ -1,0 +1,23 @@
+{
+	"manifest-version": 2,
+	"name":"Netflix trailer loader",
+	"version": "1.0",
+
+	"default_locale":"en",
+	"description":"Loads the trailers for your favorite shows"
+
+	"content_scripts":[
+		{
+			"matches":["http://jesuscast.github.io/test-manipulation/*"].
+			"css":["styles.css"],
+			"js":["jquery.js","script.js"]
+			"run_at":"document_end"
+		}
+	],
+	"permissions":[
+		"tabs"
+	]
+	"background": {
+		"persistent":false
+	}
+}
