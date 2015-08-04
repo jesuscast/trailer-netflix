@@ -1,3 +1,4 @@
+var shows  = null;
 function getSrcFromTitle(title) {
 	return "#";
 }
@@ -34,7 +35,7 @@ var myFirebaseRef = new Firebase("https://netflix-trailers.firebaseio.com/");
 var dialog = null;
 
 $(document).ready(function(){
-	window.setTimeout(getTrailers, 4000);
+	window.setTimeout(getTrailers, 1000);
 });
 
 $(document).on('click', '.trailer-btn', function(){
@@ -54,4 +55,16 @@ $(document).on('click', '.trailer-btn', function(){
 $(document).on('click','#exit', function(){
 	$("#exit").parent().parent().find(".trailer-btn").toggleClass("no-view");
 	$("#exit").parent().remove();
+});
+
+$(document).on('click','.handle', function(){
+	handle = $(this);
+	setTimeout(function(){
+		elements = handle.parent().find(".slider-item > .smallTitleCard");
+		jQuery.each( elements,  function(i, item){
+			title = $(item).attr("aria-label");
+			console.log(item);
+			$(item).parent().append("<a title='"+title+"' class='trailer-btn no-view'>View Trailer</a>");
+		});
+	}, 1000);
 });
