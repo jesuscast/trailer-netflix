@@ -13,7 +13,7 @@ function getTrailers(){
 			if(check_attribute.hasAttribute("aria-label")){
 				//console.log("has attribute");
 				title = check_attribute.getAttribute("aria-label");
-				console.log(title);
+				//console.log(title);
 				if(title != ""){
 					src_title = getSrcFromTitle(title);
 					$(shows[i]).append("<a title='"+title+"' class='trailer-btn no-view'>View Trailer</a>");
@@ -31,29 +31,31 @@ function getTrailers(){
 
 }
 
-var myFirebaseRef = new Firebase("https://netflix-trailers.firebaseio.com/");
+	var myFirebaseRef = new Firebase("https://netflix-trailers.firebaseio.com/");
 var dialog = null;
 
 $(document).ready(function(){
-	window.setTimeout(getTrailers, 1000);
+	//alert("read");
+	window.setTimeout(getTrailers, 2000);
 });
 
 $(document).on('click', '.trailer-btn', function(){
 		trailer_link = $(this);
-		console.log(trailer_link.attr('title'));
+		console.log(trailer_link.attr('title').toLowerCase());
 		if(trailer_link.hasClass("no-view")){
-			myFirebaseRef.child("trailers/"+trailer_link.attr('title').toLowerCase()).on("value", function(snapshot) {
-				//alert(snapshot.val());
-				iframe_trailer = $("<div id='window'> <h3>"+trailer_link.attr('title')+"</h3> <p><iframe width='500' height='315' src='"+snapshot.val()+"' frameborder='0' allowfullscreen></iframe></p><button id='exit'>Close Dialog</button> </div>");
+			//alert("creating iframe")
+			$.get( "https://netflix-trailers.firebaseio.com/trailers/"+trailer_link.attr('title').toLowerCase()+"/.json", function( data ) {
+				link_video = data;
+				//alert("data received"+link_video);
+				iframe_trailer = $("<div id='window'> <h3>"+trailer_link.attr('title')+"</h3> <p><iframe width='500' height='315' src='"+link_video+"' frameborder='0' allowfullscreen></iframe></p><button id='exit'>Close Dialog</button> </div>");
 				trailer_link.parent().append(iframe_trailer);
 				trailer_link.parent().css("z-index","2");
 			});
 		}
-		trailer_link.toggleClass("no-view");
 });
 
 $(document).on('click','#exit', function(){
-	$("#exit").parent().parent().find(".trailer-btn").toggleClass("no-view");
+	$("#exit").parent().parent().find(".trailer-btn");
 	$("#exit").parent().remove();
 });
 
@@ -66,5 +68,5 @@ $(document).on('click','.handle', function(){
 			console.log(item);
 			$(item).parent().append("<a title='"+title+"' class='trailer-btn no-view'>View Trailer</a>");
 		});
-	}, 1000);
+	}, 0);
 });
