@@ -1,0 +1,26 @@
+{
+	"manifest_version": 2,
+	"name":"Netflix trailer loader",
+	"version": "1.0",
+	"description":"Loads the trailers for your favorite shows",
+
+	"content_scripts":[
+		{
+			"matches":["http://www.netflix.com/browse"],
+			"css":["styles.css", "popup.css"],
+			"js":["jquery.js","firebase.js","jquery.popup.js","script.js"],
+			"run_at":"document_end"
+		}
+	],
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"http://www.netflix.com/browse"
+	],
+	"background": {
+		"persistent":false,
+		"scripts":["test.js"]
+	},
+	"page_action": {
+	}
+}
