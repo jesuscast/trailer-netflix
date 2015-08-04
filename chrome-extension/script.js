@@ -42,7 +42,7 @@ $(document).on('click', '.trailer-btn', function(){
 		trailer_link = $(this);
 		console.log(trailer_link.attr('title'));
 		if(trailer_link.hasClass("no-view")){
-			myFirebaseRef.child("trailers/"+trailer_link.attr('title')).on("value", function(snapshot) {
+			myFirebaseRef.child("trailers/"+trailer_link.attr('title').toLowerCase()).on("value", function(snapshot) {
 				//alert(snapshot.val());
 				iframe_trailer = $("<div id='window'> <h3>"+trailer_link.attr('title')+"</h3> <p><iframe width='500' height='315' src='"+snapshot.val()+"' frameborder='0' allowfullscreen></iframe></p><button id='exit'>Close Dialog</button> </div>");
 				trailer_link.parent().append(iframe_trailer);
