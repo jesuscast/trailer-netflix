@@ -1,0 +1,13 @@
+{
+  "title": "netflix trailers",
+  "name": "netflix-trailers",
+  "version": "0.0.0",
+  "description": "Get a direct link to the trailers of shows and movies listed in your netflix.",
+  "main": "index.js",
+  "author": "Jesus Andres Castaneda Sosa",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT"
+}
