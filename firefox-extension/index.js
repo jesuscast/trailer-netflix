@@ -6,7 +6,7 @@ var self = require("sdk/self");
 // It will run a script whenever a ".org" URL is loaded
 // The script replaces the page contents with a message
 pageMod.PageMod({
-  include: "http://www.netflix.com/browse",
+  include: "http://www.netflix.com/*",
   contentStyleFile: self.data.url("styles.css"),
   contentScriptFile: [self.data.url("jquery.js"),self.data.url("firebase.js"), self.data.url("script.js")]
 });

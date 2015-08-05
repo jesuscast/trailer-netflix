@@ -36,7 +36,7 @@ var dialog = null;
 
 $(document).ready(function(){
 	//alert("read");
-	window.setTimeout(getTrailers, 1000);
+	window.setTimeout(getTrailers, 2000);
 });
 
 $(document).on('click', '.trailer-btn', function(){
@@ -55,7 +55,7 @@ $(document).on('click', '.trailer-btn', function(){
 });
 
 $(document).on('click','#exit', function(){
-	$("#exit").parent().parent().find(".trailer-btn").toggleClass("no-view");
+	$("#exit").parent().parent().find(".trailer-btn");
 	$("#exit").parent().remove();
 });
 
@@ -68,5 +68,5 @@ $(document).on('click','.handle', function(){
 			console.log(item);
 			$(item).parent().append("<a title='"+title+"' class='trailer-btn no-view'>View Trailer</a>");
 		});
-	}, 1000);
+	}, 0);
 });
