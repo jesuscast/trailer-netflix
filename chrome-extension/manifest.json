@@ -6,7 +6,7 @@
 
 	"content_scripts":[
 		{
-			"matches":["http://www.netflix.com/browse"],
+			"matches":["http://www.netflix.com/*"],
 			"css":["styles.css", "popup.css"],
 			"js":["jquery.js","firebase.js","jquery.popup.js","script.js"],
 			"run_at":"document_end"
