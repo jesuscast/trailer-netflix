@@ -9,10 +9,24 @@
     font-size: 20px;
 }
 #exit {
-	border-radius: 10px;
-	width: 50%;
-	margin-left: 25%;
-	background-color: #141414;
-	color: white;
-	border: 1px solid white;
+	margin: 15px 0px 15px 0px;
+    border: 0px;
+    font-family: Helvetica;
+    padding: 5px;
+    background-color: #34495e;
+    font-size: 17px;
+    height: 40px;
+    width: 64px;
+    float: right;
+    color: #fff;
+}
+h3 {
+    float: left;
+}
+.big-link {
+    font-size: 1.5em;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    position: relative;
+    left: 3px;
 }

@@ -1,14 +1,15 @@
 {
 	"manifest_version": 2,
-	"name":"Netflix trailer loader",
+	"name":"Trailex",
 	"version": "1.0",
-	"description":"Loads the trailers for your favorite shows",
+	"description":"Trailex shows previews and trailers as you are deciding what you are going to get your binge on.",
+	"short_name":"Trailex",
 
 	"content_scripts":[
 		{
 			"matches":["http://www.netflix.com/*"],
-			"css":["styles.css", "popup.css"],
-			"js":["jquery.js","firebase.js","jquery.popup.js","script.js"],
+			"css":["styles.css"],
+			"js":["jquery.js","firebase.js","script.js"],
 			"run_at":"document_end"
 		}
 	],
@@ -19,7 +20,7 @@
 	],
 	"background": {
 		"persistent":false,
-		"scripts":["test.js"]
+		"scripts":["empty.js"]
 	},
 	"page_action": {
 	}
